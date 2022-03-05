@@ -53,6 +53,9 @@ public class $output.currentClass {
 #if(!$output.isAbstract())
     private static ${output.currentClass} instance;
     public static ${output.currentClass} getInstance() {
+    	if(instance==null) {
+    		new ${output.currentClass}();
+    	}
         return instance;
     }
 

@@ -12,7 +12,7 @@ $output.require($Configuration, "AppContext")##
 
 $output.require("com.sun.faces.config.ConfigureListener")##
 
-@SpringBootApplication(scanBasePackages = { "com.jaxio.jpa.querybyexample", "$Root", "$Web" })
+@SpringBootApplication(scanBasePackages = { "com.jaxio.jpa.querybyexample", "${Root.packageName}" })
 public class ${output.currentClass}  {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(${output.currentClass}.class, args);

@@ -13,15 +13,18 @@
 ## limitations under the License.
 ##
 $output.java($WebModelSupport, "ByteArrayStreamedContent")##
+
 $output.require("java.io.ByteArrayInputStream")##
 $output.require("java.io.InputStream")##
+$output.require("java.util.function.Supplier")##
+
 $output.require("org.primefaces.model.DefaultStreamedContent")##
 $output.require($WebUtil, "DownloadUtil")##
 
 /**
  * StreamedContent that lazily loads the binary content.
  */
-public abstract class $output.currentClass implements DefaultStreamedContent {
+public abstract class $output.currentClass extends DefaultStreamedContent {
     private String contentType = "application/download";
     private String name;
     private String contentEncoding;

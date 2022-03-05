@@ -17,7 +17,7 @@ $output.java($entity.fileUpload)##
 
 $output.require($entity.model)##
 $output.require("org.primefaces.event.FileUploadEvent")##
-$output.require("org.primefaces.model.UploadedFile")##
+$output.require("org.primefaces.model.file.UploadedFile")##
 
 public class $output.currentClass {
     private $entity.model.type $entity.model.var;
@@ -32,7 +32,7 @@ public class $output.currentClass {
      */
     public void on${attribute.varUp}FileUpload(FileUploadEvent fileUploadEvent) {
         UploadedFile uploadedFile = fileUploadEvent.getFile(); //application code
-        ${entity.model.var}.${attribute.setter}(uploadedFile.getContents());
+        ${entity.model.var}.${attribute.setter}(uploadedFile.getContent());
 #if ($attribute.fileSize)
 #if($attribute.fileSize.isInteger())    
         ${entity.model.var}.${attribute.fileSize.setter}(${entity.model.var}.${attribute.getter}().length);

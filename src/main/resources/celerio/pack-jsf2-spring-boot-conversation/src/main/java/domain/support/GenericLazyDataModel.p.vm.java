@@ -57,6 +57,7 @@ public abstract class ${output.currentClass}<E extends Identifiable<PK>, PK exte
     private E selectedRow;
     private E[] selectedRows;
     private boolean bypassFirstOffset = true;
+    private Integer count;
 
     protected GenericRepository<E, PK> repository;
     protected GenericController<E, PK> controller;
@@ -108,6 +109,21 @@ public abstract class ${output.currentClass}<E extends Identifiable<PK>, PK exte
         
         return controller.defaultOrder(sp);
     }
+
+	@Override
+	public int count(Map<String, FilterMeta> filterBy) {
+		if(count==null) {
+			E example = searchForm.getEntity();
+	        SearchParameters sp = searchForm.toSearchParameters();
+	        sp.setFirst(0);
+
+
+	        filterBy.entrySet().stream().forEach(e -> sp.addExtraParameter(e.getKey(), e.getValue().getFilterValue()));
+
+	        count = repository.findCount(example, controller.defaultOrder(sp));
+		}
+		return count;
+	}
 
     // ---------------------
     // Select row

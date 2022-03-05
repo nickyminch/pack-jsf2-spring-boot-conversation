@@ -876,7 +876,7 @@ $output.file("pom.xml")##
 			    <groupId>org.springframework.boot</groupId>
 			    <artifactId>spring-boot-maven-plugin</artifactId>             
 			    <configuration>    
-			        <mainClass>$Root".Application"</mainClass>
+			        <mainClass>${Root.packageName}.Application</mainClass>
 			    </configuration>
 			</plugin>
         </plugins>

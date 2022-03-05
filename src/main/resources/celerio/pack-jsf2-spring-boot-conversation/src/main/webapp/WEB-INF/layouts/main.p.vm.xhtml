@@ -107,15 +107,16 @@ ${brandUtil.copyLogoToFolder("src/main/webapp/resources/img")}##
 #else
 						${brand.footer}
 #end
-					</p:outputPanel>
-					<p:outputPanel layout="block" rendered="#{localeService.isFrench()}">
+						</p:outputPanel>
+						<p:outputPanel layout="block" rendered="#{localeService.isFrench()}">
 #if($brandUtil.isJaxio())
 						© 2005-2015 <a href="http://www.jaxio.com/" target="blank">JAXIO</a> - Application générée par <a href="http://www.jaxio.com/celerio.html" target="blank">Celerio</a> - <a href="http://www.jaxio.com/nous-contacter.html" target="blank">Contactez-nous</a> - <a href="http://www.twitter.com/jaxiosoft" target="blank">@jaxiosoft</a>
 #else
 						${brand.footer}
 #end
-					</p:outputPanel>
+						</p:outputPanel>
 				</h:panelGroup>
+			</div>
 			<ui:insert name="dialogs"/>
 		</h:form>
 	</h:body>
