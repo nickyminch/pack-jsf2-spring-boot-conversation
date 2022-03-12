@@ -76,6 +76,7 @@ $output.file("pom.xml")##
         <hibernate-search.version>6.1.1.Final</hibernate-search.version>
         <jsf-api.version>2.2.12</jsf-api.version>
         <primefaces.version>11.0.0</primefaces.version>
+        <primefaces-extensions.version>11.0.2</primefaces-extensions.version>
         <primefaces-themes.version>1.0.10</primefaces-themes.version>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Variables substituted in resources file at build time -->
@@ -540,6 +541,23 @@ $output.file("pom.xml")##
             <artifactId>primefaces</artifactId>
             <version>${dollar}{primefaces.version}</version>
         </dependency>
+
+        <dependency>
+		    <groupId>org.primefaces.extensions</groupId>
+		    <artifactId>primefaces-extensions</artifactId>
+		    <version>${dollar}{primefaces-extensions.version}</version>
+		</dependency>
+
+        <dependency><!-- optional theme (see also web.xml to enable it) -->
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${dollar}{primefaces-themes.version}</version>
+        </dependency>
+
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		</dependency>
         <dependency>
             <groupId>org.omnifaces</groupId>
             <artifactId>omnifaces</artifactId>
