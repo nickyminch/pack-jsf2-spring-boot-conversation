@@ -51,10 +51,10 @@ $output.file("pom.xml")##
 
         <!-- h2 jdbc settings -->
         <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-        <jdbc.url>jdbc:mysql://localhost:3309/${dollar}{project.name}</jdbc.url>
+        <jdbc.url>jdbc:mysql://localhost:3309/${dollar}{database.name}</jdbc.url>
         <jdbc.user>${dollar}{database.user}</jdbc.user>
         <jdbc.password>${dollar}{database.password}</jdbc.password>
-        <jdbc.catalog>${dollar}{project.name}</jdbc.catalog>
+        <jdbc.catalog>${dollar}{database.name}</jdbc.catalog>
         <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
         <sql-maven-plugin.delimiter>;</sql-maven-plugin.delimiter>
 #end
@@ -74,6 +74,7 @@ $output.file("pom.xml")##
         <spring-security.version>5.6.1</spring-security.version>
         <spring-security-starter.version>2.6.3</spring-security-starter.version>
         <hibernate-search.version>6.1.1.Final</hibernate-search.version>
+        <omnifaces.version>1.8.1</omnifaces.version>
         <jsf-api.version>2.2.12</jsf-api.version>
         <primefaces.version>11.0.0</primefaces.version>
         <primefaces-extensions.version>11.0.2</primefaces-extensions.version>
@@ -216,7 +217,7 @@ $output.file("pom.xml")##
                             <dependency>
                                 <groupId>com.jaxio.celerio.packs</groupId>
                                 <artifactId>pack-jsf2-spring-conversation</artifactId>
-                                <version>1.0.5.1-SNAPSHOT</version>
+                                <version>1.0.5.3</version>
                             </dependency>
                             <dependency>
 								<groupId>com.jaxio.celerio.packs</groupId>
@@ -234,11 +235,6 @@ $output.file("pom.xml")##
     <!-- ~~~~~~~~~~~~ -->
     <dependencies>
     	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-		<dependency>
-		    <groupId>org.apache.poi</groupId>
-		    <artifactId>poi</artifactId>
-		    <version>5.2.0</version>
-		</dependency>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- List your specific dependencies below -->
@@ -247,6 +243,12 @@ $output.file("pom.xml")##
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Dependencies needed by the generated project -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>5.2.0</version>
+		</dependency>
+
         <dependency>
             <groupId>com.jaxio</groupId>
             <artifactId>jpa-querybyexample</artifactId>
@@ -561,7 +563,7 @@ $output.file("pom.xml")##
         <dependency>
             <groupId>org.omnifaces</groupId>
             <artifactId>omnifaces</artifactId>
-            <version>1.8.1</version>
+            <version>${dollar}{omnifaces.version}</version>
             <!-- 2.1 requires CDI... -->
         </dependency>
         <dependency>
